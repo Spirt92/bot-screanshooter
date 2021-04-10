@@ -27,11 +27,11 @@ def handler_message(*messages):
         chatid = user_message.chat.id
         text = user_message.text
         if validators.url(user_message):
-            # driver = webdriver.Chrome("./chromedriver")
-            # driver.get(f'{user_message}')
-            # sleep(3)
-            # driver.get_screenshot_as_file("screenshot.png")
-            # driver.quit()
+            driver = webdriver.Chrome("./chromedriver")
+            driver.get(f'{user_message}')
+            sleep(3)
+            driver.get_screenshot_as_file("screenshot.png")
+            driver.quit()
             bot.send_photo(chatid, photo=open("./screenshot.png", "rb"))
         bot.send_message(chatid, text)
 
